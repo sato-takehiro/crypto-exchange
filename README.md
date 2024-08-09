@@ -74,3 +74,76 @@
 ## ■ 画面遷移図
 
 [画面遷移図](https://www.figma.com/design/yuvu9yFSfaiGoYHuGt70Y9/crypto-exchange?t=v3tWbidK2LiGjN67-1)
+
+## ■ER 図
+
+```mermaid
+erDiagram
+
+users ||--o{ limit_orders : "ユーザは0以上の指値を持つ"
+cryptocurrencies ||--o{ buying_fees : "1つの仮想通貨は0以上の購入手数料を持つ"
+crypto_exchanges ||--|{ buying_fees : "1つの仮想通貨取引所は1以上の購入手数料を持つ"
+cryptocurrencies ||--o{ limit_orders : "1つの仮想通貨は0以上の指値を持つ"
+cryptocurrencies ||--o{ crypto_withdrawal_fees : "1つの仮想通貨は0以上の出金手数料を持つ"
+crypto_exchanges ||--|{ crypto_withdrawal_fees : "1つの仮想通貨取引所は1以上の出金手数料を持つ"
+networks ||--o{ crypto_withdrawal_fees : "1つのネットワークは0以上の出金手数料を持つ"
+
+users {
+    bigint id PK "ユーザid"
+    string line_id "LINEid"
+    datetime created_at "作成日時"
+    datetime updated_at "更新日時"
+}
+
+limit_orders {
+    bigint id PK "指値id"
+    bigint user_id FK "ユーザid"
+    bigint cryptocurrency_id FK "仮想通貨id"
+    bigint asking_price "希望価格"
+    bigint asking_purchase_amount "希望購入量"
+    bigint purpose "目的"
+    datetime created_at "作成日時"
+    datetime updated_at "更新日時"
+}
+
+cryptocurrencies {
+    bigint id PK "仮想通貨id"
+    string name "名前"
+    string icon_path "アイコン画像へのパス"
+    datetime created_at "作成日時"
+    datetime updated_at "更新日時"
+}
+
+networks {
+    bigint id PK "ネットワークid"
+    string name "名前"
+}
+
+crypto_exchanges {
+    bigint id PK "仮想通貨取引所id"
+    string name "名前"
+    datetime created_at "作成日時"
+    datetime updated_at "更新日時"
+}
+
+crypto_withdrawal_fees {
+    bigint id PK "出金手数料id"
+    bigint crypto_exchange_id FK "仮想通貨取引所id"
+    bigint cryptocurrency_id FK "仮想通貨id"
+    bigint network_id FK "ネットワークid"
+    bigint minimum_withdrawal "最小出金額"
+    bigint withdrawal_fee "出金手数料"
+    datetime created_at "作成日時"
+    datetime updated_at "更新日時"
+}
+
+buying_fees {
+    bigint id PK "購入手数料id"
+    bigint crypto_exchange_id FK "仮想通貨取引所id"
+    bigint cryptocurrency_id FK "仮想通貨id"
+    bigint buying_fee "購入手数料"
+    datetime created_at "作成日時"
+    datetime updated_at "更新日時"
+}
+
+```
