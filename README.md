@@ -81,11 +81,11 @@
 erDiagram
 
 users ||--o{ limit_orders : "ユーザは0以上の指値を持つ"
-cryptocurrencies ||--o{ buying_fees : "1つの仮想通貨は0以上の購入手数料を持つ"
-crypto_exchanges ||--|{ buying_fees : "1つの仮想通貨取引所は1以上の購入手数料を持つ"
 cryptocurrencies ||--o{ limit_orders : "1つの仮想通貨は0以上の指値を持つ"
-cryptocurrencies ||--o{ crypto_withdrawal_fees : "1つの仮想通貨は0以上の出金手数料を持つ"
-crypto_exchanges ||--|{ crypto_withdrawal_fees : "1つの仮想通貨取引所は1以上の出金手数料を持つ"
+cryptocurrencies ||--o{ cryptocurrency_prices : "1つの仮想通貨は0以上の購入価格を持つ"
+crypto_exchanges ||--o{ cryptocurrency_prices : "1つの仮想通貨取引所は0以上の購入価格を持つ"
+cryptocurrency_prices ||--|{ buying_fees : "1つの購入価格は1以上の購入手数料を持つ"
+cryptocurrency_prices ||--|{ crypto_withdrawal_fees : "1つの購入価格は1以上の出金手数料を持つ"
 networks ||--o{ crypto_withdrawal_fees : "1つのネットワークは0以上の出金手数料を持つ"
 
 users {
@@ -99,8 +99,8 @@ limit_orders {
     bigint id PK "指値id"
     bigint user_id FK "ユーザid"
     bigint cryptocurrency_id FK "仮想通貨id"
-    bigint asking_price "希望価格"
-    bigint asking_purchase_amount "希望購入量"
+    float asking_purchase_price "希望購入金額"
+    float asking_purchase_amount "希望購入量"
     bigint purpose "目的"
     datetime created_at "作成日時"
     datetime updated_at "更新日時"
@@ -117,6 +117,8 @@ cryptocurrencies {
 networks {
     bigint id PK "ネットワークid"
     string name "名前"
+    datetime created_at "作成日時"
+    datetime updated_at "更新日時"
 }
 
 crypto_exchanges {
@@ -126,22 +128,29 @@ crypto_exchanges {
     datetime updated_at "更新日時"
 }
 
-crypto_withdrawal_fees {
-    bigint id PK "出金手数料id"
+cryptocurrency_prices {
+    bigint id PK "仮想通貨の価格id"
     bigint crypto_exchange_id FK "仮想通貨取引所id"
     bigint cryptocurrency_id FK "仮想通貨id"
+    float asking_price "価格"
+    datetime created_at "作成日時"
+    datetime updated_at "更新日時"
+}
+
+crypto_withdrawal_fees {
+    bigint id PK "出金手数料id"
+    bigint cryptocurrency_price_id FK "仮想通貨の価格id"
     bigint network_id FK "ネットワークid"
-    bigint minimum_withdrawal "最小出金額"
-    bigint withdrawal_fee "出金手数料"
+    float minimum_withdrawal "最小出金額"
+    float withdrawal_fee "出金手数料"
     datetime created_at "作成日時"
     datetime updated_at "更新日時"
 }
 
 buying_fees {
     bigint id PK "購入手数料id"
-    bigint crypto_exchange_id FK "仮想通貨取引所id"
-    bigint cryptocurrency_id FK "仮想通貨id"
-    bigint buying_fee "購入手数料"
+    bigint cryptocurrency_price_id FK "仮想通貨の価格id"
+    float buying_fee "購入手数料"
     datetime created_at "作成日時"
     datetime updated_at "更新日時"
 }
