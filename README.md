@@ -60,14 +60,14 @@
 
 - 開発環境：Docker
 - サーバサイド：Rails 7.0.4、Ruby 3.1.4
-- フロントエンド：Vue.js
+- フロントエンド：Hotwire（MVP リリース時）、Vue.js（本リリース時）
 - CSS フレームワーク：Tailwind CSS
 - Web アプリケーションサーバ：Fly.io
-- ファイルサーバ：AWS S3
+- ファイルサーバ：AWS S3（本リリース時）
 - データベース： PostgreSQL
 - VCS：GitHub
 - CI/CD：GitHubActions
-- 売買価格取得：各取引所の API（[coincheck](https://coincheck.com/ja/documents/exchange/api#libraries)、[GMO コイン](https://coin.z.com/jp/corp/product/info/api/)、[bitflyer](https://bitflyer.com/ja-jp/api)、[bitbank](https://support.bitbank.cc/hc/ja/articles/360019410033-API%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)、[ok coin](https://dev.okcoin.jp/en/#README)、[bittrade](https://api-doc.bittrade.co.jp/#api) など）
+- 売買価格取得：各取引所の API（coincheck、GMO コイン、bitflyer、bitbank、bittrade、bitpoint）
 - 各取引所の手数料：手打ちで実装
 - LINE 通知：LINE Messaging API
 
