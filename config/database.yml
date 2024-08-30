@@ -84,4 +84,4 @@ production:
   <<: *default
   database: crypto_exchange_production
   username: crypto_exchange
-  password: <%= ENV["CRYPTO_EXCHANGE_DATABASE_PASSWORD"] %>
+  password: ${{ secrets.PRODUCTION_DB_PASSWORD }}
