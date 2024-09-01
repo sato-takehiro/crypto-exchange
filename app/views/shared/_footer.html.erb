@@ -1,9 +1,9 @@
 <footer class="footer footer-center bg-secondary text-base-content p-10">
   <nav class="flex justify-between w-full">
-    <a class="link link-hover text-left">お問い合わせ</a>
+    <%= link_to ( t "footer.contact" ), "#", class:"link link-hover text-left" %>
     <div class="flex gap-4">
-      <a class="link link-hover text-end">利用規約</a>
-      <a class="link link-hover text-end">プライバシーポリシー</a>
+      <%= link_to ( t "footer.terms_of_service" ), "#", class:"link link-hover text-end" %>
+      <%= link_to ( t "footer.privacy_policy" ), "#", class:"link link-hover text-end" %>
     </div>
   </nav>
   <aside>
