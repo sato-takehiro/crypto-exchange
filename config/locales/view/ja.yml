@@ -1,3 +1,10 @@
 ja:
   defaults:
     title: "Crypto Exchange"
+  header:
+    top: TOP
+    search_exchange: 最安取引所を調べる
+  footer:
+    contact: お問い合わせ
+    terms_of_service: 利用規約
+    privacy_policy: プライバシーポリシー
