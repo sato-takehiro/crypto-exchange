@@ -6,4 +6,15 @@ module.exports = {
     "./app/javascript/**/*.js",
   ],
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/theming/themes")["light"],
+          primary: "#EFD7AE",
+          secondary: "#E5BE7F",
+        },
+      },
+    ],
+  },
 };
