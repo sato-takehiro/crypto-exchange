@@ -1,0 +1,13 @@
+<%= content_for(:title, t('.title')) %>
+
+<div class="hero bg-base-200 text-base-content p-10">
+  <div class="hero-content text-center">
+    <div class="max-w-md">
+      <h1 class="text-5xl font-bold"><%= t '.title' %></h1>
+      <div class="py-6">
+        <%= link_to (t '.search_exchange'), "#", class:"btn btn-primary my-6 before:content-['🔰']" %><br>
+        <%= link_to (t '.search_exchange_to_wallet').html_safe, "#", class:"btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
