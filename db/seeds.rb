@@ -7,3 +7,17 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+cryptocurrency = Cryptocurrency.create!(
+  name: 'Bitcoin',
+  code: 'BTC',
+  icon: File.open("./public/images/bitcoin.svg"),
+)
+puts "\"#{cryptocurrency.name}\" has created!"
+
+cryptocurrency = Cryptocurrency.create!(
+  name: 'Ethereum',
+  code: 'ETH',
+  icon: File.open("./public/images/eth.svg"),
+)
+puts "\"#{cryptocurrency.name}\" has created!"
