@@ -109,7 +109,8 @@ limit_orders {
 cryptocurrencies {
     bigint id PK "仮想通貨id"
     string name "名前"
-    string icon_path "アイコン画像へのパス"
+    string code "通貨コード"
+    string icon "アイコン画像"
     datetime created_at "作成日時"
     datetime updated_at "更新日時"
 }
