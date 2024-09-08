@@ -1,0 +1,6 @@
+ja:
+  activemodel:
+    attributes:
+      select_coin_form:
+        cryptocurrency_id: 通貨名
+        asking_purchase_price: 希望購入金額（JPY）
