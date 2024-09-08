@@ -6,7 +6,7 @@
       <h1 class="text-5xl font-bold"><%= t '.title' %></h1>
       <div class="py-6">
         <%= link_to (t '.search_exchange'), search_crypto_exchanges_select_coin_path, class:"btn btn-primary my-6 before:content-['🔰']" %><br>
-        <%= link_to (t '.search_exchange_to_wallet').html_safe, "#", class:"btn btn-primary" %>
+        <%= link_to (t '.search_exchange_to_wallet').html_safe, search_crypto_exchanges_select_coin_to_wallet_path, class:"btn btn-primary" %>
       </div>
     </div>
   </div>
