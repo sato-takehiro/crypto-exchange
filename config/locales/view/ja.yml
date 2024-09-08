@@ -25,6 +25,8 @@ ja:
     select_purpose:
       title: 目的選択
       search_exchange: 最安取引所を調べる
-      search_exchange_to_wallet: "wallet送金までの<br />最安取引所を調べる"
+      search_exchange_to_wallet: wallet送金までの<br />最安取引所を調べる
     select_coin:
       title: 取引所診断
+    select_coin_to_wallet:
+      title: wallet送金までの<br />取引所診断

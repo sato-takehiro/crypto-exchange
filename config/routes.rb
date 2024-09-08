@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   get "search_crypto_exchanges/select_purpose"
   get "search_crypto_exchanges/select_coin"
+  get "search_crypto_exchanges/select_coin_to_wallet"
   get "search_crypto_exchanges/result"
+  get "search_crypto_exchanges/result_to_wallet"
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
