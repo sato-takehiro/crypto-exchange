@@ -75,6 +75,10 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.2)
     base64 (0.2.0)
+    better_errors (2.10.1)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
+      rouge (>= 1.0.0)
     bigdecimal (3.1.8)
     bindex (0.8.1)
     bootsnap (1.18.4)
@@ -236,6 +240,7 @@ GEM
       io-console (~> 0.5)
     rexml (3.3.6)
       strscan
+    rouge (4.3.0)
     rspec-core (3.13.0)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.2)
@@ -306,6 +311,18 @@ GEM
       railties (>= 6.0.0)
     stringio (3.1.1)
     strscan (3.1.0)
+    tailwindcss-rails (2.7.3)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.7.3-aarch64-linux)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.7.3-arm-linux)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.7.3-arm64-darwin)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.7.3-x86_64-darwin)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.7.3-x86_64-linux)
+      railties (>= 7.0.0)
     thor (1.3.1)
     timeout (0.4.1)
     turbo-rails (2.0.6)
@@ -339,6 +356,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  better_errors
   bootsnap
   brakeman
   capybara
@@ -357,6 +375,7 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   stimulus-rails
+  tailwindcss-rails (~> 2.7)
   turbo-rails
   tzinfo-data
   web-console

@@ -1,0 +1,11 @@
+<%= form_with model: select_coin, url: url do |f| %>
+  <div class="form-control w-full max-w-xs">
+    <%= f.label :cryptocurrency_id, class: "label label-text" %>
+    <%= f.collection_select :cryptocurrency_id, Cryptocurrency.all, :id, :code, {prompt: (t 'helpers.prompt.select_coin_form.cryptocurrency_id')}, {class: "select select-primary w-full max-w-xs"} %>
+  </div>
+  <div class="form-control w-full max-w-xs py-6">
+    <%= f.label :asking_purchase_price, class: "label label-text" %>
+    <%= f.number_field :asking_purchase_price, placeholder: (t 'helpers.placeholder.select_coin_form.asking_purchase_price'), min: 1, class: "input input-primary w-full max-w-xs" %>
+  </div>
+  <%= f.submit (t 'helpers.submit.result') , class: "btn btn-primary" %>
+<% end %>
