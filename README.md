@@ -36,9 +36,9 @@
 
 ## ■ サービスの差別化ポイント・推しポイント
 
-[coingecko](https://www.coingecko.com/ja/%E3%82%B3%E3%82%A4%E3%83%B3/%E3%83%93%E3%83%83%E3%83%88%E3%82%B3%E3%82%A4%E3%83%B3)：各仮想通貨取引所の売買価格を表示する。
+[coingecko](https://www.coingecko.com/ja/%E3%82%B3%E3%82%A4%E3%83%B3/%E3%83%93%E3%83%83%E3%83%88%E3%82%B3%E3%82%A4%E3%83%B3)：各取引所の売買価格を表示する。
 
-[Coin Choice](https://coinchoice.net/btc_rate/)：各仮想通貨取引所の売買価格から、優位なアービトラージを提示する。
+[Coin Choice](https://coinchoice.net/btc_rate/)：各取引所の売買価格から、優位なアービトラージを提示する。
 
 ただし、両者とも、最も手数料の安い取引所を提示する機能はないし、それを目的としたサービスでもない。
 
@@ -83,8 +83,8 @@ erDiagram
 users ||--o{ limit_orders : "ユーザは0以上の指値を持つ"
 cryptocurrencies ||--o{ limit_orders : "1つの仮想通貨は0以上の指値を持つ"
 cryptocurrencies ||--o{ cryptocurrency_prices : "1つの仮想通貨は0以上の購入価格を持つ"
-crypto_exchanges ||--o{ cryptocurrency_prices : "1つの仮想通貨取引所は0以上の購入価格を持つ"
-cryptocurrency_prices ||--|{ buying_fees : "1つの購入価格は1以上の購入手数料を持つ"
+exchanges ||--o{ cryptocurrency_prices : "1つの取引所は0以上の購入価格を持つ"
+cryptocurrency_prices ||--|| buying_fees : "1つの購入価格は1つの購入手数料を持つ"
 cryptocurrency_prices ||--|{ crypto_withdrawal_fees : "1つの購入価格は1以上の出金手数料を持つ"
 networks ||--o{ crypto_withdrawal_fees : "1つのネットワークは0以上の出金手数料を持つ"
 
@@ -122,8 +122,8 @@ networks {
     datetime updated_at "更新日時"
 }
 
-crypto_exchanges {
-    bigint id PK "仮想通貨取引所id"
+exchanges {
+    bigint id PK "取引所id"
     string name "名前"
     datetime created_at "作成日時"
     datetime updated_at "更新日時"
@@ -131,7 +131,7 @@ crypto_exchanges {
 
 cryptocurrency_prices {
     bigint id PK "仮想通貨の価格id"
-    bigint crypto_exchange_id FK "仮想通貨取引所id"
+    bigint exchange_id FK "取引所id"
     bigint cryptocurrency_id FK "仮想通貨id"
     float asking_price "価格"
     datetime created_at "作成日時"
