@@ -11,7 +11,6 @@ class Tasks::AskingPurchasePrice < ApplicationRecord
       from_bitflyer
       from_bitbank
       from_bittrade
-      from_bitpoint
     end
   end
 
