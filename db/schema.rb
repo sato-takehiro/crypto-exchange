@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_09_184000) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_11_100723) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,6 +59,18 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_09_184000) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "limit_orders", force: :cascade do |t|
+    t.float "asking_purchase_price", null: false
+    t.float "asking_purchase_amount", null: false
+    t.integer "purpose", null: false
+    t.bigint "cryptocurrency_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cryptocurrency_id"], name: "index_limit_orders_on_cryptocurrency_id"
+    t.check_constraint "asking_purchase_amount > 0::double precision", name: "asking_purchase_amount_check"
+    t.check_constraint "asking_purchase_price > 0::double precision", name: "asking_purchase_price_check"
+  end
+
   create_table "networks", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -70,4 +82,5 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_09_184000) do
   add_foreign_key "crypto_withdrawal_fees", "networks"
   add_foreign_key "cryptocurrency_prices", "cryptocurrencies"
   add_foreign_key "cryptocurrency_prices", "exchanges"
+  add_foreign_key "limit_orders", "cryptocurrencies"
 end

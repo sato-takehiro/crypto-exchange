@@ -1,0 +1,16 @@
+<div class="overflow-x-auto">
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th><%= Exchange.model_name.human %></th>
+        <th><%= t '.available_asking_purcahse_amount' %></th>
+        <% if asking_purchase_amounts[0][:network] %>
+          <td><%= Network.model_name.human %></td>
+        <% end %>
+    </thead>
+    <tbody>
+      <%= render partial: 'row', collection: @asking_purchase_amounts %>
+    </tbody>
+  </table>
+</div>
