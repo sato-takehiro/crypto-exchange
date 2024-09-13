@@ -1,6 +1,6 @@
 require "json"
 
-class Tasks::Ask < ApplicationRecord
+class Tasks::AskingPurchasePrice < ApplicationRecord
   INTERVAL = 1
 
   def self.get

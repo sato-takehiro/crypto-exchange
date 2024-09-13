@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      exchange: 取引所
+      limit_order: 指値
+      network: ネットワーク
+    attricwbutes:
+      limit_order:
+        asking_purchase_price: 希望購入金額
+        asking_purchase_amount: 希望購入量

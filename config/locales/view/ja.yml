@@ -6,11 +6,10 @@ ja:
       result: 調べる
     placeholder:
       select_coin_form:
-        asking_purchase_price: 1以上
+        asking_purchase_price: 0より大きい値を入力
     prompt:
       select_coin_form:
         cryptocurrency_id: 選択してください
-
   header:
     top: TOP
     search_exchange: 最安取引所を調べる
@@ -30,3 +29,9 @@ ja:
       title: 取引所診断
     select_coin_to_wallet:
       title: wallet送金までの<br />取引所診断
+    result:
+      title: 取引所診断結果
+    result_to_wallet:
+      title: wallet送金までの<br />取引所診断結果
+    table:
+      available_asking_purcahse_amount: 購入可能量
