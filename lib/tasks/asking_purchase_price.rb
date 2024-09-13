@@ -1,6 +1,6 @@
 require "json"
 
-class Tasks::Ask < ApplicationRecord
+class Tasks::AskingPurchasePrice < ApplicationRecord
   INTERVAL = 1
 
   def self.get
@@ -115,23 +115,23 @@ class Tasks::Ask < ApplicationRecord
     end
   end
 
-  def self.from_bitpoint
-    pairs = { Bitcoin: "BTCJPY", Ethereum: "ETHJPY" }
-    exchange = Exchange.find_by(name: "BITPoint")
+#   def self.from_bitpoint
+#     pairs = { Bitcoin: "BTCJPY", Ethereum: "ETHJPY" }
+#     exchange = Exchange.find_by(name: "BITPoint")
 
-    json = HTTP.get("https://smartapi.bitpoint.co.jp/bpj-smart-api/api/ticker/bookTicker")
-    response = JSON.parse(json)
+#     json = HTTP.get("https://smartapi.bitpoint.co.jp/bpj-smart-api/api/ticker/bookTicker")
+#     response = JSON.parse(json)
 
-    pairs.each do |cryptocurrency_name, pair|
-      cryptocurrency = Cryptocurrency.find_by(name: cryptocurrency_name)
-      cryptocurrency_price = CryptocurrencyPrice.find_by(exchange_id: exchange.id, cryptocurrency_id: cryptocurrency.id)
+#     pairs.each do |cryptocurrency_name, pair|
+#       cryptocurrency = Cryptocurrency.find_by(name: cryptocurrency_name)
+#       cryptocurrency_price = CryptocurrencyPrice.find_by(exchange_id: exchange.id, cryptocurrency_id: cryptocurrency.id)
 
-      asking_price = response["bookTicker"].find { |item| item["symbol"] == pair }["askPrice"]
-      if cryptocurrency_price.update(asking_price: asking_price)
-        puts cryptocurrency_price.asking_price
-      else
-        puts "failed to save from bitpoint"
-      end
-    end
-  end
+#       asking_price = response["bookTicker"].find { |item| item["symbol"] == pair }["askPrice"]
+#       if cryptocurrency_price.update(asking_price: asking_price)
+#         puts cryptocurrency_price.asking_price
+#       else
+#         puts "failed to save from bitpoint"
+#       end
+#     end
+#   end
 end

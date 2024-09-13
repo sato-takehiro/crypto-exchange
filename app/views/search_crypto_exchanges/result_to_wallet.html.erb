@@ -5,7 +5,7 @@
     <div class="max-w-md">
       <h1 class="text-5xl font-bold"><%= (t '.title').html_safe %></h1>
       <div class="py-6">
-        <%= render "form", select_coin_form: @select_coin_form, url: search_crypto_exchanges_result_to_wallet_path %>
+        <%= render "table", asking_purchase_amounts: @asking_purchase_amounts %>
       </div>
     </div>
   </div>

@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     get :select_purpose
     get :select_coin
     get :select_coin_to_wallet
-    get :result
-    get :result_to_wallet
+    post :result
+    post :result_to_wallet
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

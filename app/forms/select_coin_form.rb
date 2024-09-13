@@ -9,5 +9,5 @@ class SelectCoinForm
   attribute :asking_purchase_price, :float
 
   validates :cryptocurrency_id, presence: true
-  validates :asking_purchase_price, presence: true, length: { minimum: 1 }
+  validates :asking_purchase_price, presence: true, numericality: { greater_than: 0 }
 end
